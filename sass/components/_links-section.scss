@@ -236,9 +236,12 @@
                 color: var(--clr-neutral-400);
                 font-weight: 500;
                 font-size: var(--font-base);
+		word-wrap: break-word;
+		width: 100%;
 
                 @include big{
                     font-size: 1.175rem;
+		    width: initial;
                 }
             }
 
