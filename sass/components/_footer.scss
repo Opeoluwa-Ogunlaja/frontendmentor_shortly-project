@@ -1,0 +1,107 @@
+footer{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: var(--clr-neutral-400);
+    position: relative;
+    width: 100%;
+    padding-block: var(--space-1xl);
+
+    & > .logo{
+        & > svg {
+            & >  *{
+                fill: white !important;
+            }
+        }
+    }
+
+    & > .links-container{
+        gap: var(--space-footer);
+
+
+        .footer-links{
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: var(--space-footer);
+
+            @include mobile{
+                grid-template-columns: 1fr;
+                row-gap: var(--space-xl);
+            }
+
+            & > div{
+                flex-direction: column;
+                gap: var(--space-sm);
+
+                @include mobile{
+                    gap: var(--space-norm);
+                }
+
+                & > h3{
+                    font-size: var(--font-small);
+                    font-weight: 700;
+                    color: white;
+                }
+
+                & > ul{
+                    display: flex;
+                    flex-direction: column;
+
+                    @include mobile{
+                        gap: var(--space-norm);
+                    }
+
+                    li{
+                        a{
+                            color: var(--clr-neutral-100);
+                            transition: color .3s ease;
+                            font-size: var(--font-xsm);
+
+                            &:hover{
+                                color: var(--clr-primary-light);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contact-links{
+            gap: 2vw;
+
+            @include mobile{
+                margin-top: var(--space-xlg);
+                gap: var(--space-lg);
+            }
+
+            li {
+                a{
+                    svg{
+                        pointer-events: all;
+                        *{
+                            transition: fill .3s ease;
+                        }
+                        &:hover{
+                            *{
+                                fill: var(--clr-primary-light) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mobile{
+            flex-direction: column;
+            margin-top: var(--space-xl);
+        }
+    }
+
+    @include big{
+        padding-block: var(--space-2xl);
+        justify-content: space-between;
+        flex-direction: row;
+        text-align: initial;
+        align-items: start;
+    }
+}

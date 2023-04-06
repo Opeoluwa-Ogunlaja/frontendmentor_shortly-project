@@ -1,0 +1,141 @@
+@mixin big{
+    @media screen and (min-width: 767px){
+        @content;
+    }
+}
+
+@mixin mobile{
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (max-width: 1140px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media screen and (max-width: 540px) {
+        @content;
+    }
+}
+
+@function value($arr, $val){
+    @return map-get($map: $arr, $key: $val);
+}
+
+@mixin no-border($rad){
+    outline: none;
+    border: none;
+    border-radius: $rad;
+}
+
+@mixin soft-cyan-btn($rad: initial){
+    background-color: var(--clr-primary-light);
+    color: white !important;
+    border-radius: $rad;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: all .3s ease;
+
+    &:hover{
+        background-color: hsla(180, 66%, 49%, 50%);
+    }
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin font($size, $weight) {
+    font-size: $size;
+    font-weight: value($font-weight, $weight);
+}
+
+@mixin flex-reset{
+    flex-direction: initial;
+    justify-content: initial;
+    justify-items: initial;
+    align-items: initial;
+    gap: initial;
+}
+
+@mixin text-reset {
+    text-align: initial;
+    vertical-align: initial;
+    line-height: initial;
+}
+
+@mixin width-reset {
+    width: initial;
+    max-width: initial;
+    min-width: initial;
+}
+
+@mixin center-stuff($width: initial) {
+    max-width: $width;
+    width: $width;   
+    margin-inline: auto;
+}
+
+@mixin colored-shadow($shadow ,$color: $soft-blue) {
+    box-shadow: $shadow lighten($color: $color, $amount: 30);
+}
+
+@mixin no-top-shadow($y-displacement: .25rem) {
+    position: relative;
+    &::before{
+        /* To remove that annoying top shadow 😪😁. Not really doing anything but illuminating the shadow though 😂 */
+        content: '';
+        position: absolute;
+        top: -$y-displacement;
+        outline: none;
+        border: none;
+        width: 100%;
+        margin-top: -1px;
+        border-radius: inherit;
+        left: 0;
+        height: $y-displacement;
+        background-color: rgb(255 255 255 / 0.5);
+        mix-blend-mode: lighten;
+    }   
+}
+
+@mixin pseudo-icon($img, $color, $mask: 'true') {
+    @if $mask == "true" {
+        -webkit-mask: url($img);
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask: url($img);
+        mask-repeat: no-repeat;
+        background-color: $color;
+        mask-size: cover;   
+    }
+    @else{
+        content: url($img);
+    }
+}
+
+@mixin border-solid($width) {
+    border-width: $width;
+    border-style: solid;
+    border-color: inherit;
+}
+
+@mixin step-cards($num, $space){
+    @for $i from 1 to $num+1 {
+        &:nth-of-type(#{$i}){
+            margin-top: calc((#{$i} - 1) * $space);
+            margin-bottom: calc(((#{$i} - 1) * $space) * -1);
+        }
+    }
+}

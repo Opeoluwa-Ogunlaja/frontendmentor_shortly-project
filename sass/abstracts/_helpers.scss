@@ -1,0 +1,41 @@
+.grid{
+    display: grid;
+}
+
+.hide-on-small{
+    @include mobile{
+        display: none;
+    }
+}
+
+.side-padding{
+    padding-inline: var(--side-padding);
+}
+
+.flex{
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
+
+.hide-on-small{
+    @media screen and (max-width: 640px) {
+        display: none;
+    }
+}
+
+.show-on-small{
+    @media screen and (min-width: 640px) {
+        display: none;
+    }
+}
+
+.gray-bg{
+    background-color: #EFF1F7;
+}
+
+.soft-cyan-btn{
+    @include soft-cyan-btn(10rem)
+}

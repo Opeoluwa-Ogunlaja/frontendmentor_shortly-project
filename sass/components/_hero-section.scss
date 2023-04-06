@@ -1,0 +1,85 @@
+.hero-section{
+    min-height: 20rem;
+    margin-bottom: 3rem;
+    padding-block: var(--space-xlg);
+    & > .hero-section__description{
+        grid-area: description;
+        flex-direction: column;
+        gap: var(--space-lg);
+
+        & > .hero-section__description-text{
+            flex-direction: column;
+            & > h2{
+                font-size: var(--font-large);
+                color: var(--clr-neutral-300);
+                max-width: 15ch;
+                line-height: 1.2;
+
+                @include mobile{
+                    max-width: 17ch;
+                    text-align: center;
+                    margin-top: 1.25rem;
+                }
+            }
+            
+            & > p{
+                color: var(--clr-neutral-200);
+                max-width: 45ch;
+                font-size: var(--font-small);
+
+                @include mobile{
+                    margin-top: .25rem;
+                    line-height: 1.7;
+                }
+            }
+        }
+
+        @include mobile{
+            align-items: center;
+            & *{
+                text-align: center;
+            }
+        }
+    }
+
+    & > .hero-section__image-container{
+        grid-area: image;
+        width: 100%;
+        height: 12rem;
+
+        @include big{
+            position: absolute;
+            right: -4rem;
+            margin-right: -10rem;
+            top: 0;
+            width: 60%;
+            height: 19rem;
+        }
+
+        & > img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .get_started_btn{
+        padding-inline: var(--space-xl);
+        padding-block: var(--space-sm);
+        font-size: 15px;
+
+        @include mobile{
+            padding-block: var(--space-base);
+            font-size: var(--font-small);
+        }
+    }
+
+    position: relative;
+    grid-template-areas: 
+        'image' 
+        'description'
+    ;
+
+    @include small{
+        justify-content: center;
+    }
+}

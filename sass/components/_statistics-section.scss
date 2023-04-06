@@ -1,0 +1,170 @@
+.statistics_section{
+    padding-top: var(--space-xlg);
+    padding-bottom: 8rem;
+
+    & > .statistics-section__description{
+        flex-direction: column;
+        gap: var(--space-lg);
+
+        & > .statistics-section__description-text{
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            gap: var(--space-sm);
+
+            @include mobile{
+                gap: var(--space-xsm);
+            }
+
+            & > h2{
+                font-size: var(--font-heading);
+                color: var(--clr-neutral-300);
+
+                @include mobile{
+                    max-width: 17ch;
+                    text-align: center;
+                    margin-top: 1.25rem;
+                }
+            }
+            
+            & > p{
+                color: var(--clr-neutral-200);
+                max-width: 45ch;
+                font-size: var(--font-xs);
+                line-height: 2;
+
+                @include mobile{
+                    margin-top: .25rem;
+                    line-height: 1.7;
+                }
+            }
+        }
+
+        @include mobile{
+            align-items: center;
+            & *{
+                text-align: center;
+            }
+        }
+    }
+
+    & > .statistics-section__cards{
+        width: 100%;
+        margin-top: var(--space-3xl);
+        gap: var(--space-xl);
+        padding-bottom: var(--space-3xl);
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        isolation: isolate;
+
+        &::before{
+            position: absolute;
+            background-color: var(--clr-primary-light);
+            left: 0;
+            content: '';
+            width: 100%;
+            top: 50%;
+            translate: 0 -50%;
+            height: .375rem;
+
+            @include mobile{
+                top: 0;
+                left: 50%;
+                width: .375rem;
+                height: 80%;
+                translate: -50% 0;
+            }
+
+        }
+
+        & > .statistics-section__card{
+            background-color: white;
+            position: relative;
+            border-radius: .375rem;
+            padding-top: var(--space-1xl);
+            padding-bottom: var(--space-xlg);
+            padding-inline: var(--space-md);
+            align-items: center;
+            justify-content: center;
+
+            & > .card-image{
+                position: absolute;
+                top: 0;
+                background-color: var(--clr-primary-dark);
+                border-radius: 9999px;
+                place-items: center;
+                padding: var(--space-sm);
+                box-sizing: content-box;
+                left: 50%;
+                translate: -50% -50%;
+
+                &, & > *{
+                    transition: all .2s ease;
+                }
+
+                & > img{
+                    scale: .7;
+                }
+
+                @include big{
+                    left: 18%;
+                    padding: var(--space-norm);
+                    
+
+                }
+            }
+
+            & > .card-description{
+                flex-direction: column;
+                gap: var(--space-norm);
+                align-items: center;
+
+                & > h4{
+                    font-size: var(--font-base);
+                    color: var(--clr-primary-dark);
+
+                    @include mobile{
+                        text-align: center;
+                    }
+                }
+
+                & > p{
+                    color: var(--clr-neutral-200);
+                    font-size: 14px;
+                    line-height: 1.8;
+                    max-width: 30ch;
+
+                    @include mobile{
+                        text-align: center;
+                        font-size: var(--font-xs);
+
+                        @include center-stuff(30ch)
+                    }
+                }
+
+                @include big{
+                    align-items: start;
+                }
+            }
+
+            @include mobile{
+                padding-inline: 0;
+            }
+
+            @include big{
+                padding-top: var(--space-2xl);
+                @include step-cards(3, var(--space-1xl));
+                justify-content: initial;
+            }
+        }
+
+        @include mobile{
+            grid-template-columns: 1fr;
+            gap: var(--space-1xl);
+        }
+    }
+
+    @include mobile{
+        padding-bottom: var(--space-xsm);
+    }
+}
